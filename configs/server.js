@@ -2,6 +2,8 @@
 import express from "express";
 import cors from "cors";
 //import { hash } from "argon2";
+import authRoutes from "../src/auth/auth.routes.js";
+import userRoutes from "../src/user/user.routes.js";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
@@ -56,6 +58,8 @@ const crearCategoria = async () => {
 };
 */
 const routes = (app) => {
+  app.use("/coperexInterFer/v1/auth", authRoutes);
+  app.use("/coperexInterFer/v1/user", userRoutes);
  /* app.use("/gestorOpinions/v1/auth", authRoutes);
   app.use("/gestorOpinions/v1/user", userRoutes);
   app.use("/gestorOpinions/v1/categoria", categoryRoutes);
