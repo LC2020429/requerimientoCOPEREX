@@ -3,8 +3,10 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
+import categoryRoutes from "../src/categoryEnterprise/category.routes.js";
 import { hash } from "argon2";
 import User from "../src/user/user.model.js";
+import Category from "../src/categoryEnterprise/category.model.js";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
@@ -49,15 +51,14 @@ const crearAdministrador = async () => {
   }
 };
 
-/*
+
 const crearCategoria = async () => {
   try {
-    const categoriaExist = await Category.findOne({ categoryName: "Default" });
+    const categoriaExist = await Category.findOne({ categoriaEmpresarial: "Default" });
 
     if (!categoriaExist) {
       const defaultCategory = new Category({
-        categoryName: "Default",
-        vistasCategory: 0,
+        categoriaEmpresarial: "Default",
         status: true,
       });
       await defaultCategory.save();
@@ -66,16 +67,11 @@ const crearCategoria = async () => {
     console.log(`Error al crear la categoría por defecto: ${err}`);
   }
 };
-*/
+
 const routes = (app) => {
   app.use("/coperexInterFer/v1/auth", authRoutes);
   app.use("/coperexInterFer/v1/user", userRoutes);
-  /* 
-  app.use("/gestorOpinions/v1/user", userRoutes);
-  app.use("/gestorOpinions/v1/categoria", categoryRoutes);
-  app.use("/gestorOpinions/v1/publicacion", publicacionRoutes);
-  app.use("/gestorOpinions/v1/comentarios", comentRoutes);
-  */
+  app.use("/coperexInterFer/v1/categoria", categoryRoutes);
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 };
 const conectarDB = async () => {
@@ -94,7 +90,7 @@ export const initServer = () => {
     conectarDB();
     routes(app);
     crearAdministrador();
-    //crearCategoria();
+    crearCategoria();
     const port = process.env.PORT || 3002;
     app.listen(port, () => {
       console.log(`Server running on port ${port} `);
