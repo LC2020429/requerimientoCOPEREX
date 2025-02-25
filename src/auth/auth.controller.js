@@ -5,16 +5,17 @@ import { generateJWT } from "../helpers/generate-jwt.js";
 export const register = async (req, res) => {
   try {
     const data = req.body;
-    let profilePicture = req.file ? req.file.filename : null;
+    let adminPicture = req.file ? req.file.filename : null;
     const encryptedPassword = await hash(data.password);
     data.password = encryptedPassword;
-    data.profilePicture = profilePicture;
+    data.adminPicture = adminPicture;
 
     const user = await User.create(data);
 
     return res.status(201).json({
       message: "User has been created",
-      name: user.name,
+      apellidos: user.apellidos,
+      userName: user.userName,
       email: user.email,
     });
   } catch (err) {
@@ -26,10 +27,10 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, userName, password } = req.body;
   try {
     const user = await User.findOne({
-      $or: [{ email: email }, { username: username }],
+      $or: [{ email: email }, { userName: userName }],
     });
 
     if (!user) {
@@ -54,7 +55,7 @@ export const login = async (req, res) => {
       message: "Login successful",
       userDetails: {
         token: token,
-        profilePicture: user.profilePicture,
+        adminPicture: user.adminPicture,
       },
     });
   } catch (err) {

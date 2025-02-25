@@ -1,9 +1,10 @@
 "use strict";
 import express from "express";
 import cors from "cors";
-//import { hash } from "argon2";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
+import { hash } from "argon2";
+import User from "../src/user/user.model.js";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
@@ -18,28 +19,37 @@ const middlewares = (app) => {
   app.use(morgan("dev"));
   app.use(apiLimiter);
 };
+
 /*
+notas de errores :
+cuando postman indica 
+{
+    "message": "User registration failed",
+    "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined"
+}
+    es porque se espera una contraseña para cifrar con argon2  y no se envia en el body
+*/
 const crearAdministrador = async () => {
   try {
-    const adminExist = await User.findOne({ username: "AdminOpinionGestor" });
+    const adminExist = await User.findOne({ userName: "AdminOpinionGestor" });
 
-    if (!adminExist) {
+    if (!adminExist) {      
       const encryptedPassword = await hash("Key40RAdm!nSuper");
       const admin = new User({
-        name: "Admin",
-        username: "AdminOpinionGestor",
+        apellidos: "Admin",
+        userName: "AdminOpinionGestor",
         email: "AdminOpinionGestor@gmail.com",
         password: encryptedPassword,
         phone: 11110000,
-        role: "ADMIN",
       });
       await admin.save();
     }
   } catch (err) {
-    console.log(`Error al crear al administrador ${err}`);
+    console.log(`Error al crear el administrador: ${err}`);
   }
 };
 
+/*
 const crearCategoria = async () => {
   try {
     const categoriaExist = await Category.findOne({ categoryName: "Default" });
@@ -60,7 +70,7 @@ const crearCategoria = async () => {
 const routes = (app) => {
   app.use("/coperexInterFer/v1/auth", authRoutes);
   app.use("/coperexInterFer/v1/user", userRoutes);
- /* app.use("/gestorOpinions/v1/auth", authRoutes);
+  /* 
   app.use("/gestorOpinions/v1/user", userRoutes);
   app.use("/gestorOpinions/v1/categoria", categoryRoutes);
   app.use("/gestorOpinions/v1/publicacion", publicacionRoutes);
@@ -83,7 +93,7 @@ export const initServer = () => {
     middlewares(app);
     conectarDB();
     routes(app);
-    //crearAdministrador();
+    crearAdministrador();
     //crearCategoria();
     const port = process.env.PORT || 3002;
     app.listen(port, () => {

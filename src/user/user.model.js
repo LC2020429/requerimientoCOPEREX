@@ -25,6 +25,10 @@ const userSchema = new Schema({
         maxLength: 8,
         required: true
     },
+    password:{
+        type: String,
+        required: [true, 'La contraseña es obligatoria']
+    },
     status:{
         type: Boolean,
         default: true

@@ -6,6 +6,8 @@ import {
 } from "../helpers/db-validators.js";
 import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
+import { validateJWTstatus } from "./validate-status.js";
+import { validateJWT } from "./validate-jwt.js";
 import { handleErrors } from "./handle-errors.js";
 
 export const registerValidator = [
@@ -37,7 +39,8 @@ export const loginValidator = [
   body("userName")
     .optional()
     .isString()
-    .withMessage("Username es en formato erróneo"),
+    .withMessage("Username invalido, debe ser un string"),
+  body("password").notEmpty().withMessage("La contraseña es obligatoria"),
   validarCampos,
   handleErrors,
 ];
@@ -50,6 +53,8 @@ export const getUserByIdValidator = [
 ];
 
 export const deleteUserValidator = [
+  validateJWT,
+  validateJWTstatus,
   param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
   param("uid").custom(userExists),
   validarCampos,
@@ -57,6 +62,7 @@ export const deleteUserValidator = [
 ];
 
 export const updateUserValidator = [
+  validateJWT,
   param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
   param("uid").custom(userExists),
   body("apellidos")
@@ -76,6 +82,8 @@ export const updateUserValidator = [
 ];
 
 export const updateProfilePictureValidator = [
+  validateJWTstatus,
+  validateJWT,
   param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
   param("uid").custom(userExists),
   validarCampos,
@@ -84,6 +92,8 @@ export const updateProfilePictureValidator = [
 ];
 
 export const updatePasswordValidator = [
+  validateJWT,
+  validateJWTstatus,
   param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
   param("uid").custom(userExists),
   body("newPassword").isLength({ min: 8 }).withMessage("El password debe contener al menos 8 caracteres"),
