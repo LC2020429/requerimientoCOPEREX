@@ -1,6 +1,6 @@
 import User from "../user/user.model.js";
 import Category from "../categoryEnterprise/category.model.js";
-
+import Enterprise from "../enterprise/enterprise.model.js"
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
     if(existe){
@@ -28,11 +28,10 @@ export const categoryExists = async (cid = "") => {
         throw new Error("No existe la categoría con el ID proporcionado")
     }
 }
-/*
-export const publicacionExists = async (pid = "") => {
-    const existe = await Publicacion.findById(pid);
+
+export const enterpriseExists = async (eid = "") => {
+    const existe = await Enterprise.findById(eid);
     if (!existe) {
-        throw new Error("No existe la publicacion con el ID proporcionado");
+        throw new Error("No existe la empresa con el ID proporcionado");
     }
 };
-*/
