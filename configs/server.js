@@ -3,6 +3,12 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
+<<<<<<< Updated upstream
+=======
+import categoryRoutes from "../src/categoryEnterprise/category.routes.js";
+import enterpriseRoutes from "../src/enterprise/enterprise.routes.js";  
+import excelRoutes from "../src/excel/excel.routes.js";
+>>>>>>> Stashed changes
 import { hash } from "argon2";
 import User from "../src/user/user.model.js";
 import helmet from "helmet";
@@ -70,12 +76,10 @@ const crearCategoria = async () => {
 const routes = (app) => {
   app.use("/coperexInterFer/v1/auth", authRoutes);
   app.use("/coperexInterFer/v1/user", userRoutes);
-  /* 
-  app.use("/gestorOpinions/v1/user", userRoutes);
-  app.use("/gestorOpinions/v1/categoria", categoryRoutes);
-  app.use("/gestorOpinions/v1/publicacion", publicacionRoutes);
-  app.use("/gestorOpinions/v1/comentarios", comentRoutes);
-  */
+  app.use("/coperexInterFer/v1/categoria", categoryRoutes);
+  app.use("/coperexInterFer/v1/enterprise", enterpriseRoutes);
+  app.use("/coperexInterFer/v1/reports", excelRoutes);
+
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 };
 const conectarDB = async () => {

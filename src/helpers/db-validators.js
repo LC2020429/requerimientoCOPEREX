@@ -1,4 +1,23 @@
 import User from "../user/user.model.js";
+<<<<<<< Updated upstream
+=======
+import Category from "../categoryEnterprise/category.model.js";
+import Enterprise from "../enterprise/enterprise.model.js"
+
+export const nombreEmpresaExists = async (nombreEmpresa = "") => {
+    const existe = await Enterprise.findOne({ nombreEmpresa });
+    if (existe) {
+        throw new Error(`La empresa con el nombre ${nombreEmpresa} ya está registrada`);
+    }
+};
+
+export const nitExists = async (nit = "") => {
+    const existe = await Enterprise.findOne({ nit });
+    if (existe) {
+        throw new Error(`La empresa con el NIT ${nit} ya está registrada`);
+    }
+};
+>>>>>>> Stashed changes
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
