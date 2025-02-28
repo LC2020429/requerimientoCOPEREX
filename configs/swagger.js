@@ -1,35 +1,29 @@
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
-const options = {
+const swaggerOptions = {
   swaggerDefinition: {
-    openapi: "3.0.0",
+    openapi: '3.0.0',
     info: {
-      title: "Opinion Gestor API",
-      version: "1.0.0",
-      description: "Api simulando las publicaciones de opinion de X",
-      contact: {
-        name: "Luis Cordova",
-        email: "lcordova-2020429@kinal.edu.gt",
-      },
+      title: 'Coperex API',
+      version: '1.0.0',
+      description: 'API documentation for Coperex',
     },
     servers: [
       {
-        url: "http://127.0.0.1:3002/coperexInterFer/v1",
+        url: 'http://localhost:3003',
       },
     ],
   },
   apis: [
-    /*
-    "./src/auth/auth.routes.js",
-    "./src/user/user.routes.js",
-    "./src/publicacion/publicacion.routes.js",
-    "./src/coments/coments.routes.js",
-    "./src/category/categorys.routes.js",
-    */
+    './src/auth/auth.routes.js',
+    './src/user/user.routes.js',
+    './src/categoryEnterprise/category.routes.js',
+    './src/enterprise/enterprise.routes.js',
+    './src/excel/excel.routes.js',
   ],
 };
 
-const swaggerDocs = swaggerJSDoc(options);
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 export { swaggerDocs, swaggerUi };

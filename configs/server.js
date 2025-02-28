@@ -52,7 +52,7 @@ const crearAdministrador = async () => {
   }
 };
 
-/*
+
 const crearCategoria = async () => {
   try {
     const categoriaExist = await Category.findOne({ categoryName: "Default" });
@@ -69,7 +69,7 @@ const crearCategoria = async () => {
     console.log(`Error al crear la categoría por defecto: ${err}`);
   }
 };
-*/
+
 const routes = (app) => {
   app.use("/coperexInterFer/v1/auth", authRoutes);
   app.use("/coperexInterFer/v1/user", userRoutes);
@@ -95,7 +95,7 @@ export const initServer = () => {
     conectarDB();
     routes(app);
     crearAdministrador();
-    //crearCategoria();
+    crearCategoria();
     const port = process.env.PORT || 3002;
     app.listen(port, () => {
       console.log(`Server running on port ${port} `);
