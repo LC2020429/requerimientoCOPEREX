@@ -8,6 +8,15 @@ import { uploadProfilePicture } from "../middlewares/multer-uploads-pp.js";
 
 const router = Router();
 
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary: Register a new user
+ *     responses:
+ *       200:
+ *         description: User registered
+ */
 router.post(
   "/register",
   uploadProfilePicture.single("adminPicture"), 
@@ -15,6 +24,15 @@ router.post(
   register
 );
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: User login
+ *     responses:
+ *       200:
+ *         description: User logged in
+ */
 router.post("/login", loginValidator, login);
 
 export default router;
