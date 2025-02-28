@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "67c2123c4010bca4dea06ddc"
+  },
+  "nombreEmpresa": "TacoBell",
+  "direccion": "zona 21",
+  "nit": "87654321",
+  "telefono": "12345678",
+  "nombreContacto": "asdasd",
+  "email": "asd@gmail.com",
+  "anoFundacion": 2000,
+  "anoRegistroInterFer": 2025,
+  "estado": true,
+  "nivelImpacto": "Alto",
+  "category": {
+    "$oid": "67be28d539e7bd445ce19f1b"
+  },
+  "rtuEmpresa": "C:\\Users\\Compu\\Desktop\\COPEREX\\requerimientoCOPEREX\\constancias\\rtu\\rtu-empresa\\Laboratorio 3 - Analisis de caso COPEREX-1740771900254.pdf",
+  "createdAt": {
+    "$date": "2025-02-28T19:45:00.268Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:52:41.714Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c212934010bca4dea06de4"
+  },
+  "nombreEmpresa": "SamSung",
+  "direccion": "zona 1",
+  "nit": "87654329",
+  "telefono": "12345678",
+  "nombreContacto": "jaimme",
+  "email": "samsungSA@gmail.com",
+  "anoFundacion": 1950,
+  "anoRegistroInterFer": 2025,
+  "estado": true,
+  "nivelImpacto": "Alto",
+  "category": {
+    "$oid": "67c211b47f236b8865cedfc4"
+  },
+  "rtuEmpresa": "C:\\Users\\Compu\\Desktop\\COPEREX\\requerimientoCOPEREX\\constancias\\rtu\\rtu-empresa\\Laboratorio 3 - Analisis de caso COPEREX-1740771987689.pdf",
+  "createdAt": {
+    "$date": "2025-02-28T19:46:27.698Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:46:27.698Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c212c24010bca4dea06dec"
+  },
+  "nombreEmpresa": "Pinulito",
+  "direccion": "zona 1",
+  "nit": "76543219",
+  "telefono": "12345678",
+  "nombreContacto": "asdasd",
+  "email": "asd@gmail.com",
+  "anoFundacion": 2000,
+  "anoRegistroInterFer": 2025,
+  "estado": true,
+  "nivelImpacto": "Alto",
+  "category": {
+    "$oid": "67be28d539e7bd445ce19f1b"
+  },
+  "rtuEmpresa": "C:\\Users\\Compu\\Desktop\\COPEREX\\requerimientoCOPEREX\\constancias\\rtu\\rtu-empresa\\Laboratorio 3 - Analisis de caso COPEREX-1740772034134.pdf",
+  "createdAt": {
+    "$date": "2025-02-28T19:47:14.149Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:47:14.149Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c2131d4010bca4dea06df4"
+  },
+  "nombreEmpresa": "Campero",
+  "direccion": "zona 15",
+  "nit": "59343452",
+  "telefono": "12345678",
+  "nombreContacto": "Juan",
+  "email": "camperito@gmail.com",
+  "anoFundacion": 1971,
+  "anoRegistroInterFer": 2025,
+  "estado": true,
+  "nivelImpacto": "Alto",
+  "category": {
+    "$oid": "67c211cb4010bca4dea06dd2"
+  },
+  "rtuEmpresa": "C:\\Users\\Compu\\Desktop\\COPEREX\\requerimientoCOPEREX\\constancias\\rtu\\rtu-empresa\\Laboratorio 3 - Analisis de caso COPEREX (1)-1740772125313.pdf",
+  "createdAt": {
+    "$date": "2025-02-28T19:48:45.323Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:48:45.323Z"
+  }
+}]

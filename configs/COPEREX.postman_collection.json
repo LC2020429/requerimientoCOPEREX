@@ -1,0 +1,1462 @@
+{
+	"info": {
+		"_postman_id": "a38c6a46-e497-45f6-9e52-bc7f380fc42f",
+		"name": "COPEREX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41770366"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "addAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "apellidos",
+									"value": "corodva",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "LC2020429",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "lc2020@interfer.org.gt",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "87654321",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123!Admin",
+									"type": "text"
+								},
+								{
+									"key": "adminPicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/WhatsApp Image 2025-02-28 at 11.23.43 PM.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addAdmin2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "apellidos",
+									"value": "cristel",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "ale2024",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ale2024@interfer.org.gt",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "87654321",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123!Admin",
+									"type": "text"
+								},
+								{
+									"key": "adminPicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/temperamentos.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "apellidos",
+									"value": "corodfa",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "LC2020429",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "lc2020@interfer.org.gt",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "87654321",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123!Admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/findUsers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"findUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/findUser/67c20d5a3cf6914c44ba0e32",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"findUser",
+								"67c20d5a3cf6914c44ba0e32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ale2024@interfer.org.gt\",\r\n    \"password\": \"123!Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"AdminOpinionGestor@gmail.com\",\r\n    \"password\": \"Key40RAdm!nSuper\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMDNkZGJlMDM4NTAzNGQ3Nzc1ZTEiLCJpYXQiOjE3NDA1MDg3ODIsImV4cCI6MTc0MDUxMjM4Mn0.nhcAJq3NQA2zpJ4SEZnj4shEC4fZIqrYp-Tgr6LyMOU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/deleteUser/67be03ddbe0385034d7775e1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"deleteUser",
+								"67be03ddbe0385034d7775e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMDNkZGJlMDM4NTAzNGQ3Nzc1ZTEiLCJpYXQiOjE3NDA1MDg3ODIsImV4cCI6MTc0MDUxMjM4Mn0.nhcAJq3NQA2zpJ4SEZnj4shEC4fZIqrYp-Tgr6LyMOU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPasswordVerify\": \"123!Admin\",\r\n    \"newPassword\": \"Qw3rt01!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/updatePassword/67be03d8be0385034d7775dd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"updatePassword",
+								"67be03d8be0385034d7775dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateState",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMDNkZGJlMDM4NTAzNGQ3Nzc1ZTEiLCJpYXQiOjE3NDA1MDkxNDYsImV4cCI6MTc0MDUxMjc0Nn0.dRq0_7YeMUOZwkiS0ZZVwniqU1atd_hJVUB9TVUbX1Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/updateUser/67be03ddbe0385034d7775e1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"updateUser",
+								"67be03ddbe0385034d7775e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFoto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA4NzIsImV4cCI6MTc0MDc3NDQ3Mn0.jKBK9JJM6y1Tyr7r42TI1IfLPuFuDpySqX5IthXDZuE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/Captura.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/user/updateProfilePicture/67c20d9896460e7ee9292fda",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"user",
+								"updateProfilePicture",
+								"67c20d9896460e7ee9292fda"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorias",
+			"item": [
+				{
+					"name": "addCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA5NDQsImV4cCI6MTc0MDc3NDU0NH0.D5KPl1BDYpANOEun8DuE0MOPSsUGgpPVwhCcWFVMsOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoriaEmpresarial\": \"Tecnología\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/agregarCategoria",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								"agregarCategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA5NDQsImV4cCI6MTc0MDc3NDU0NH0.D5KPl1BDYpANOEun8DuE0MOPSsUGgpPVwhCcWFVMsOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoriaEmpresarial\": \"Alimentos\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/agregarCategoria",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								"agregarCategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCategorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA2OTM4MjksImV4cCI6MTc0MDY5NzQyOX0.XrB9vfAuo9dkD0MWh3zUdo8gpoOYKxrLsS_VaZTuNMs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA1MTY2MzUsImV4cCI6MTc0MDUyMDIzNX0.mdtA46Ckb2e7E_bsHzmZAERjLxdyOSkNB9JgsL3rq2w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/buscarCategoria/67be299ede6f0d601a918442",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								"buscarCategoria",
+								"67be299ede6f0d601a918442"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarCate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA1MTY2MzUsImV4cCI6MTc0MDUyMDIzNX0.mdtA46Ckb2e7E_bsHzmZAERjLxdyOSkNB9JgsL3rq2w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoriaEmpresarial\": \"qwerty\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/actualizarCategoria/67be25177deca65406a40267",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								"actualizarCategoria",
+								"67be25177deca65406a40267"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarCate Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA1MTY2MzUsImV4cCI6MTc0MDUyMDIzNX0.mdtA46Ckb2e7E_bsHzmZAERjLxdyOSkNB9JgsL3rq2w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/categoria/eliminarCategoria/67be25177deca65406a40267",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"categoria",
+								"eliminarCategoria",
+								"67be25177deca65406a40267"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "addCompanie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA5NDQsImV4cCI6MTc0MDc3NDU0NH0.D5KPl1BDYpANOEun8DuE0MOPSsUGgpPVwhCcWFVMsOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreEmpresa",
+									"value": "SamSung",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "zona 1",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "nombreContacto",
+									"value": "jaimme",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "samsungSA@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "anoFundacion",
+									"value": "1950",
+									"type": "text"
+								},
+								{
+									"key": "nivelImpacto",
+									"value": "Alto",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c211b47f236b8865cedfc4",
+									"type": "text"
+								},
+								{
+									"key": "rtuEmpresa",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/Laboratorio 3 - Analisis de caso COPEREX.pdf"
+								},
+								{
+									"key": "nit",
+									"value": "87654329",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/agregarEmpresa",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"agregarEmpresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCompanie Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA5NDQsImV4cCI6MTc0MDc3NDU0NH0.D5KPl1BDYpANOEun8DuE0MOPSsUGgpPVwhCcWFVMsOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreEmpresa",
+									"value": "Pinulito",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "zona 1",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "nombreContacto",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "asd@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "anoFundacion",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "nivelImpacto",
+									"value": "Alto",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67be28d539e7bd445ce19f1b",
+									"type": "text"
+								},
+								{
+									"key": "rtuEmpresa",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/Laboratorio 3 - Analisis de caso COPEREX.pdf"
+								},
+								{
+									"key": "nit",
+									"value": "76543219",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/agregarEmpresa",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"agregarEmpresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCompanie Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzA5NDQsImV4cCI6MTc0MDc3NDU0NH0.D5KPl1BDYpANOEun8DuE0MOPSsUGgpPVwhCcWFVMsOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreEmpresa",
+									"value": "Campero",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "zona 15",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "nombreContacto",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "camperito@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "anoFundacion",
+									"value": "1971",
+									"type": "text"
+								},
+								{
+									"key": "nivelImpacto",
+									"value": "Alto",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c211cb4010bca4dea06dd2",
+									"type": "text"
+								},
+								{
+									"key": "rtuEmpresa",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/Laboratorio 3 - Analisis de caso COPEREX (1).pdf"
+								},
+								{
+									"key": "nit",
+									"value": "59343452",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/agregarEmpresa",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"agregarEmpresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCategoriasAZ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/listarOrdenAZ",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"listarOrdenAZ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCategoriasAZ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/listarOrdenZA",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"listarOrdenZA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarAnios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/listarPorAnios/54",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"listarPorAnios",
+								"54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/buscarEmpresa/67c212934010bca4dea06de4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"buscarEmpresa",
+								"67c212934010bca4dea06de4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarNombre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/buscarPorNombre/campero",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"buscarPorNombre",
+								"campero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rename",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyMGQ5ODk2NDYwZTdlZTkyOTJmZGEiLCJpYXQiOjE3NDA3NzIxOTEsImV4cCI6MTc0MDc3NTc5MX0.v3dTUzBmd2GMHCStv6MiVhRYg1TUOgYstP03ohbCKKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreEmpresa\": \"TacoBell\",\r\n    \"direccion\": \"zona 21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/actualizarEmpresa/67c2123c4010bca4dea06ddc",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"actualizarEmpresa",
+								"67c2123c4010bca4dea06ddc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompanie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA2MDQ4MzIsImV4cCI6MTc0MDYwODQzMn0.OguTURC5ulEzpr78EeKYfGyQs_qERBRPx5zXqLFj0Tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreEmpresa\": \"asas\",\r\n    \"direccion\": \"zonz1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/eliminarEmpresa/67bf7501977dbc5f9d55fa73",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"eliminarEmpresa",
+								"67bf7501977dbc5f9d55fa73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarIneractivo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMjY4YWM4MmVkYmEzNTk0NjA1NzQiLCJpYXQiOjE3NDA2OTA2NTUsImV4cCI6MTc0MDY5NDI1NX0.nTAF4Wh7nSZvkMjR_hhwtcFxzQoYpj4SCgdxo4XRPXM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/enterprise/listParamsEnterprise?order=AZ",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"enterprise",
+								"listParamsEnterprise"
+							],
+							"query": [
+								{
+									"key": "nombreEmpresa",
+									"value": "Campero",
+									"disabled": true
+								},
+								{
+									"key": "anoFundacion",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "nit",
+									"value": "76543219",
+									"disabled": true
+								},
+								{
+									"key": "minAnoFundacion",
+									"value": "200",
+									"disabled": true
+								},
+								{
+									"key": "maxAnoFundacion",
+									"value": "2000",
+									"disabled": true
+								},
+								{
+									"key": "minAnoRegistro",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "maxAnoRegistro",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "AZ"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "excel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/reports/descargarExcel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"reports",
+								"descargarExcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excel Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"trayectoriaMin\": 10,\r\n  \"trayectoriaMax\": 25,\r\n  \"order\": \"Z-A\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/reports/descargarExcel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"reports",
+								"descargarExcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excel Copy 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"transcurridosMin\": 0,\r\n  \"transcurridosMax\": 5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/reports/descargarExcel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"reports",
+								"descargarExcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excel Copy 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"transcurridosMin\": 0,\r\n  \"transcurridosMax\": 5,\r\n  \"trayectoriaMin\": 25,\r\n  \"trayectoriaMax\": 55,\r\n  \"order\": \"A-Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/coperexInterFer/v1/reports/descargarExcel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"coperexInterFer",
+								"v1",
+								"reports",
+								"descargarExcel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

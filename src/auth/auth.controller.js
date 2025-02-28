@@ -3,6 +3,7 @@ import User from "../user/user.model.js";
 import { generateJWT } from "../helpers/generate-jwt.js";
 
 export const register = async (req, res) => {
+  console.log(req.body)
   try {
     const data = req.body;
     const encryptedPassword = await hash(data.password);

@@ -4,10 +4,13 @@ import {
   registerValidator,
   loginValidator,
 } from "../middlewares/user-validators.js";
+import { uploadProfilePicture } from "../middlewares/multer-uploads-pp.js";
 
 const router = Router();
+
 router.post(
   "/register",
+  uploadProfilePicture.single("adminPicture"), 
   registerValidator,
   register
 );

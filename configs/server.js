@@ -3,12 +3,9 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
-<<<<<<< Updated upstream
-=======
 import categoryRoutes from "../src/categoryEnterprise/category.routes.js";
 import enterpriseRoutes from "../src/enterprise/enterprise.routes.js";  
 import excelRoutes from "../src/excel/excel.routes.js";
->>>>>>> Stashed changes
 import { hash } from "argon2";
 import User from "../src/user/user.model.js";
 import helmet from "helmet";

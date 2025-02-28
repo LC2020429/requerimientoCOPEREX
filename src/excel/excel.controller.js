@@ -2,16 +2,56 @@ import ExcelJS from "exceljs";
 import Enterprise from "../enterprise/enterprise.model.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 export const generateExcel = async (req, res) => {
   try {
-    const enterprises = await Enterprise.find();
+    const {
+      order,
+      trayectoriaMin,
+      trayectoriaMax,
+      transcurridosMin,
+      transcurridosMax,
+    } = req.body;
+
+    let query = {};
+
+    // Filtrar por rango de años de trayectoria
+    if (trayectoriaMin !== undefined && trayectoriaMax !== undefined) {
+      query.anoFundacion = {
+        $gte: new Date().getFullYear() - trayectoriaMax,
+        $lte: new Date().getFullYear() - trayectoriaMin,
+      };
+    }
+
+    // Filtrar por rango de años transcurridos desde Registro InterFer
+    if (transcurridosMin !== undefined && transcurridosMax !== undefined) {
+      query.anoRegistroInterFer = {
+        $gte: new Date().getFullYear() - transcurridosMax,
+        $lte: new Date().getFullYear() - transcurridosMin,
+      };
+    }
+
+    let enterprises = await Enterprise.find(query).populate("category", "name");
+
+    // Ordenar por nombre de empresa
+    if (order === "A-Z") {
+      enterprises.sort((a, b) =>
+        a.nombreEmpresa.localeCompare(b.nombreEmpresa)
+      );
+    } else if (order === "Z-A") {
+      enterprises.sort((a, b) =>
+        b.nombreEmpresa.localeCompare(a.nombreEmpresa)
+      );
+    }
+
     if (enterprises.length === 0) {
       return res.status(404).json({
         success: false,
-        message: "No hay empresas para exportar",
+        message: "No hay empresas que cumplan con los filtros",
       });
     }
 
@@ -19,47 +59,67 @@ export const generateExcel = async (req, res) => {
     const worksheet = workbook.addWorksheet("Empresas");
 
     worksheet.columns = [
-      { header: "Nombre", key: "name", width: 20 },
-      { header: "Razón Social", key: "corporateReason", width: 25 },
+      { header: "Nombre Empresa", key: "nombreEmpresa", width: 25 },
+      { header: "Dirección", key: "direccion", width: 30 },
+      { header: "RTU", key: "rtuEmpresa", width: 20 },
       { header: "NIT", key: "nit", width: 15 },
-      { header: "Categoría", key: "category", width: 15 },
-      { header: "Fecha de Fundación", key: "foundationDate", width: 20 },
-      { header: "Años de Trayectoria", key: "yearsCareer", width: 20 },
-      { header: "País", key: "country", width: 15 },
-      { header: "Ciudad", key: "city", width: 20 },
-      { header: "Teléfono", key: "phone", width: 15 },
+      { header: "Teléfono", key: "telefono", width: 15 },
+      { header: "Nombre Contacto", key: "nombreContacto", width: 25 },
       { header: "Email", key: "email", width: 30 },
-      { header: "Sitio Web", key: "sitioWeb", width: 30 },
+      { header: "Año Fundación", key: "anoFundacion", width: 15 },
+      { header: "Años Trayectoria", key: "anosTrayectoria", width: 15 },
+      {
+        header: "Año Registro InterFer",
+        key: "anoRegistroInterFer",
+        width: 20,
+      },
+      {
+        header: "Años Transcurridos",
+        key: "anosTranscurridosInterFer",
+        width: 20,
+      },
+      { header: "Categoría", key: "category", width: 20 },
+      { header: "Estado", key: "estado", width: 10 },
     ];
 
     enterprises.forEach((company) => {
       worksheet.addRow({
-        name: company.name,
-        corporateReason: company.corporateReason,
+        nombreEmpresa: company.nombreEmpresa,
+        direccion: company.direccion,
+        rtuEmpresa: company.rtuEmpresa,
         nit: company.nit,
-        category: company.category,
-        foundationDate: company.foundationDate.toISOString().split("T")[0],
-        yearsCareer: company.yearsCareer,
-        country: company.country,
-        city: company.city,
-        phone: company.phone,
+        telefono: company.telefono,
+        nombreContacto: company.nombreContacto,
         email: company.email,
-        sitioWeb: company.sitioWeb || "N/A",
+        anoFundacion: company.anoFundacion,
+        anosTrayectoria: new Date().getFullYear() - company.anoFundacion,
+        anoRegistroInterFer: company.anoRegistroInterFer,
+        anosTranscurridosInterFer:
+          new Date().getFullYear() - company.anoRegistroInterFer,
+        category: company.category?.name || "Sin categoría",
+        estado: company.estado ? "Activo" : "Inactivo",
       });
     });
 
-    const filePath = path.join(__dirname, "..", "reports", "enterprises.xlsx");
+    // Guardar en la carpeta "excelReports" al mismo nivel que "src"
+    const reportsDir = path.join(process.cwd(), "excelReports");
+    if (!fs.existsSync(reportsDir)) {
+      fs.mkdirSync(reportsDir, { recursive: true });
+    }
+
+    const fileName = `empresas_${Date.now()}.xlsx`;
+    const filePath = path.join(reportsDir, fileName);
     await workbook.xlsx.writeFile(filePath);
 
     res.status(200).json({
       success: true,
       message: "Reporte Excel generado correctamente",
-      filePath: filePath,
+      fileUrl: `/excelReports/${fileName}`,
     });
   } catch (err) {
     return res.status(500).json({
       success: false,
-      message: "Error al generar el excel",
+      message: "Error al generar el Excel",
       error: err.message,
     });
   }
