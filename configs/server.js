@@ -4,6 +4,9 @@ import cors from "cors";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
 import categoryRoutes from "../src/categoryEnterprise/category.routes.js";
+import enterpriseRoutes from "../src/enterprise/enterprise.routes.js";  
+import excelRoutes from "../src/excel/excel.routes.js";
+
 import { hash } from "argon2";
 import User from "../src/user/user.model.js";
 import Category from "../src/categoryEnterprise/category.model.js";
@@ -72,6 +75,8 @@ const routes = (app) => {
   app.use("/coperexInterFer/v1/auth", authRoutes);
   app.use("/coperexInterFer/v1/user", userRoutes);
   app.use("/coperexInterFer/v1/categoria", categoryRoutes);
+  app.use("/coperexInterFer/v1/enterprise", enterpriseRoutes);
+  app.use("/coperexInterFer/v1/reports", excelRoutes);
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 };
 const conectarDB = async () => {

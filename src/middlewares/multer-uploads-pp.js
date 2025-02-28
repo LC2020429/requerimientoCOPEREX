@@ -3,7 +3,7 @@ import { dirname, extname, join } from "path";
 import { fileURLToPath } from "url";
 
 const CURRENT_DIR = dirname(fileURLToPath(import.meta.url));
-const MIMETYPES = ["image/png", "image/jpg", "image/jpeg", "application/pdf"];
+const MIMETYPES = ["image/png", "image/jpg", "image/jpeg"];
 const MAX_SIZE = 100000000;
 
 const createMulterConfig = (destinationFolder) => {
@@ -21,9 +21,8 @@ const createMulterConfig = (destinationFolder) => {
       },
     }),
     fileFilter: (req, file, cb) => {
-      if (MIMETYPES.includes(file.mimetype)) {
-        cb(null, true);
-      } else {
+      if (MIMETYPES.includes(file.mimetype)) cb(null, true);
+      else
         cb(
           new Error(
             `Solamente se aceptan archivos de los siguientes tipos: ${MIMETYPES.join(
@@ -31,7 +30,6 @@ const createMulterConfig = (destinationFolder) => {
             )}`
           )
         );
-      }
     },
     limits: {
       fileSize: MAX_SIZE,
@@ -39,6 +37,6 @@ const createMulterConfig = (destinationFolder) => {
   });
 };
 
-export const uploadRTU = createMulterConfig(
-  "../../constancias/rtu/rtu-empresa"
+export const uploadProfilePicture = createMulterConfig(
+  "../../public/uploads/profile-pictures"
 );
