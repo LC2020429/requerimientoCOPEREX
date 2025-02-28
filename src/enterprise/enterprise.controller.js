@@ -5,8 +5,10 @@ import Enterprise from "./enterprise.model.js";
 
 export const createEnterprise = async (req, res) => {
   try {
+    let rtuEmpresa = req.file ? req.file.path : null;
     const data = req.body;
     const empresa = new Enterprise(data);
+    empresa.rtuEmpresa = rtuEmpresa;
     await empresa.save();
     return res.status(201).json({ success: true, empresa });
   } catch (err) {
@@ -168,6 +170,47 @@ export const updateEnterprise = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Error al actualizar la empresa",
+      error: err.message,
+    });
+  }
+};
+
+export const listParamsEnterprise = async (req, res) => {
+  try {
+    const { nombreEmpresa, nit, minAnoFundacion, maxAnoFundacion, minAnoRegistro, maxAnoRegistro, order } = req.query;
+    
+    let filter = {};
+    if (nombreEmpresa) {
+      filter.nombreEmpresa = new RegExp(nombreEmpresa, "i");
+    }
+    if (nit) {
+      filter.nit = nit;
+    }
+    // debe de ser años de trayectoria y no lista por los años 
+    if (minAnoFundacion || maxAnoFundacion) {
+      filter.anoFundacion = {};
+      if (minAnoFundacion) filter.anoFundacion.$gte = Number(minAnoFundacion);
+      if (maxAnoFundacion) filter.anoFundacion.$lte = Number(maxAnoFundacion);
+    }
+    // no esta en la DB
+    if (minAnoRegistro || maxAnoRegistro) {
+      filter.anoRegistroInterFer = {};
+      if (minAnoRegistro) filter.anoRegistroInterFer.$gte = Number(minAnoRegistro);
+      if (maxAnoRegistro) filter.anoRegistroInterFer.$lte = Number(maxAnoRegistro);
+    }
+
+    let query = Enterprise.find(filter);
+    if (order) {
+      if (order === "AZ") query = query.sort({ nombreEmpresa: 1 });
+      else if (order === "ZA") query = query.sort({ nombreEmpresa: -1 });
+    }
+
+    const empresas = await query;
+    return res.status(200).json({ success: true, empresas });
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: "Error al listar empresas",
       error: err.message,
     });
   }

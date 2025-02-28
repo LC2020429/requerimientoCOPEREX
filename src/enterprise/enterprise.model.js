@@ -8,6 +8,7 @@ const empresaSchema = new Schema(
         50,
         "El nombre de la empresa no puede superar los 50 caracteres",
       ],
+      unique: true,
       required: true,
     },
     direccion: {
@@ -17,6 +18,17 @@ const empresaSchema = new Schema(
         "La dirección de la empresa no puede superar los 50 caracteres",
       ],
       required: true,
+    },
+    rtuEmpresa: {
+      type: String,
+      required: true,
+    },
+    nit: {
+      type: String,
+      maxlength: 8,
+      minlength: 8,
+      required: true,
+      unique: true,
     },
     telefono: {
       type: String,
@@ -40,6 +52,10 @@ const empresaSchema = new Schema(
       type: Number,
       required: true,
     },
+    anoRegistroInterFer: {
+      type: Number,
+      default: new Date().getFullYear(), // Año actual cuando se crea el documento
+    },
     estado: {
       type: Boolean,
       default: true,
@@ -53,7 +69,7 @@ const empresaSchema = new Schema(
     category: {
       type: Schema.Types.ObjectId,
       ref: "Category",
-      required: [true, "El id de la categoría es obligatoria"], 
+      required: [true, "El id de la categoría es obligatoria"],
     },
   },
   {
@@ -63,9 +79,16 @@ const empresaSchema = new Schema(
     toObject: { virtuals: true },
   }
 );
-// funcion para agregar los años de trayectoria de la empresa
+
 empresaSchema.virtual("anosTrayectoria").get(function () {
   return new Date().getFullYear() - this.anoFundacion;
+});
+
+empresaSchema.virtual("registroInterFerInfo").get(function () {
+  return {
+    añoRegistro: this.anoRegistroInterFer,
+    añosTranscurridos: new Date().getFullYear() - this.anoRegistroInterFer,
+  };
 });
 
 empresaSchema.methods.toJSON = function () {

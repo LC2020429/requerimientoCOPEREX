@@ -29,12 +29,6 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria']
     },
-    role:{
-        type: String,
-        required: true,
-        default: "ADMIN",
-        enum: ["ADMIN"]
-    },
     status:{
         type: Boolean,
         default: true

@@ -14,7 +14,7 @@ import {
   updateUserValidator,
   updateProfilePictureValidator,
 } from "../middlewares/user-validators.js";
-import { uploadProfilePicture } from "../middlewares/multer-uploads.js";
+import { uploadProfilePicture } from "../middlewares/multer-uploads-pp.js";
 
 const router = Router();
 
