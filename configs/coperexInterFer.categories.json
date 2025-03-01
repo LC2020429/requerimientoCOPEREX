@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67c0e28a0ecb2f2e9ab787d0"
+  },
+  "categoriaEmpresarial": "Default",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c211b47f236b8865cedfc4"
+  },
+  "categoriaEmpresarial": "Tecnología",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c211cb4010bca4dea06dd2"
+  },
+  "categoriaEmpresarial": "Alimentos",
+  "status": true
+}]

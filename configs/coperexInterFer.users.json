@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "67c0e28a0ecb2f2e9ab787d6"
+  },
+  "apellidos": "Admin",
+  "userName": "AdminOpinionGestor",
+  "email": "AdminOpinionGestor@gmail.com",
+  "phone": "11110000",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Xkl/wsTBAyB+r1Nr+dxrbA$1VoIegypjVn6a0HF5//XXu29JY969Uy+LL0qLwl+R+c",
+  "role": "ADMIN",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-27T22:09:14.134Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T22:09:14.134Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c20d5a3cf6914c44ba0e32"
+  },
+  "apellidos": "corodva",
+  "userName": "LC2020429",
+  "email": "lc2020@interfer.org.gt",
+  "phone": "87654321",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$wZrRnbHUySHPeKC5yp7dug$LmNWg1BH1FUDQ4w2VQYfQc8bhbugkRRr2DjbpBNm//M",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-28T19:24:10.557Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:24:10.557Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c20d9896460e7ee9292fda"
+  },
+  "apellidos": "cristel",
+  "userName": "ale2024",
+  "email": "ale2024@interfer.org.gt",
+  "phone": "87654321",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Upf1QLlkxKsJFoSp+pbIcA$p+tf15uK3XFnaNYjcswo4FL6cZwZwF4zz8WNq5dvqvs",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-28T19:25:12.784Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-28T19:25:12.784Z"
+  }
+}]
